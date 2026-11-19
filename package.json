@@ -1,0 +1,35 @@
+{
+  "name": "sso-identity-access-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.21.0",
+  "scripts": {
+    "dev": "pnpm --filter \"@sso/*\" --parallel run dev",
+    "dev:api": "pnpm --filter @sso/api dev",
+    "dev:web": "pnpm --filter @sso/web dev",
+    "build": "pnpm -r run build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,json,md,yml,yaml}\"",
+    "typecheck": "pnpm -r run typecheck",
+    "test": "pnpm -r run test",
+    "test:e2e": "pnpm --filter @sso/web test:e2e",
+    "db:generate": "pnpm --filter @sso/database db:generate",
+    "db:migrate": "pnpm --filter @sso/database db:migrate",
+    "db:seed": "pnpm --filter @sso/database db:seed",
+    "db:studio": "pnpm --filter @sso/database db:studio",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:prod:up": "docker compose -f docker-compose.prod.yml up -d --build",
+    "docker:prod:down": "docker compose -f docker-compose.prod.yml down"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "eslint": "^9.20.1",
+    "prettier": "^3.5.1",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.0"
+  }
+}
