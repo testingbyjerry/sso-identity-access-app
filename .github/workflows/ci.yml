@@ -21,7 +21,6 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9.15.4
           run_install: false
 
       - name: Setup Node.js 20
@@ -32,6 +31,9 @@ jobs:
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Build Internal Packages
+        run: pnpm --filter "./packages/*" run build
 
       - name: Run ESLint
         run: pnpm lint
@@ -80,7 +82,6 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9.15.4
           run_install: false
 
       - name: Setup Node.js 20
@@ -91,6 +92,9 @@ jobs:
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Build Internal Packages
+        run: pnpm --filter "./packages/*" run build
 
       - name: Apply Database Migrations
         run: pnpm db:migrate
@@ -114,7 +118,6 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9.15.4
           run_install: false
 
       - name: Setup Node.js 20
@@ -125,6 +128,9 @@ jobs:
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Build Internal Packages
+        run: pnpm --filter "./packages/*" run build
 
       - name: Run Frontend Unit & Component Tests
         run: pnpm --filter @sso/web test
@@ -146,7 +152,6 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9.15.4
           run_install: false
 
       - name: Setup Node.js 20
